@@ -1,13 +1,15 @@
 /**
      * Created by assafrubin on 8/27/16.
      */
+var config = require('./config/config').config;
 var http = require('http');
 var request = require('request');
 var fs = require('fs');
 var moment = require('moment');
 var logger = require('./logger.js').logger;
 
-var FILES_DIR = '/Users/assafrubin/Dev/forex/';
+var FILES_DIR = config.filesDir;
+console.log('files dir: ', FILES_DIR);
 var currencyMap = {
     EUR: ['USD', 'GBP', 'JPY', 'CHF', 'AUD', 'CAD', 'NOK', 'NZD'],
     USD: ['JPY', 'CHF', 'CAD', 'NOK', 'SEK'],
