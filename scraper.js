@@ -59,6 +59,7 @@ function buildCurrenciesAsQuery(currencies) {
 function saveCurrencyFile(fileName, data, callback) {
     var filePath = FILES_DIR + fileName + '_' + moment().format('DD-MM-YYYY')+'.csv';
     fs.access(filePath, fs.F_OK, function(notExists) {
+        data = data.replace(/(^[ \t]*\n)/gm, "");
         if (notExists) {
             logger.info('creating new file: ', filePath);
             fs.writeFile(filePath, data, callback);
